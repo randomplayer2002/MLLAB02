@@ -12,7 +12,7 @@ import gensim
 from gensim.models import Word2Vec
 
 # Reads ‘alice.txt’ file
-sample = open("a.txt", encoding = "utf-8")
+sample = open("Alice.txt", encoding = "utf-8")
 s = sample.read()
 
 # Replaces escape character with space
