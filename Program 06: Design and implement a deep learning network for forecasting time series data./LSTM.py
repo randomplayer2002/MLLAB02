@@ -39,7 +39,6 @@ model.fit(X_train, y_train, epochs=100, batch_size=64)
 
 y_pred = model.predict(X_test)
 
-# Corrected the typo in the next two lines
 y_pred_original_scale = scaler.inverse_transform(y_pred.reshape(-1, 1))
 y_test_original_scale = scaler.inverse_transform(y_test.reshape(-1, 1))
 
