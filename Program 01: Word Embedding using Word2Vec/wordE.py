@@ -4,8 +4,8 @@
 import nltk
 nltk.download('punkt')
 from nltk.tokenize import sent_tokenize, word_tokenize
-import warnings
 
+import warnings
 warnings.filterwarnings(action = 'ignore')
 
 import gensim
