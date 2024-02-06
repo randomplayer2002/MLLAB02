@@ -22,8 +22,7 @@ autoencoder = Model(input_img, decoded)
 autoencoder.compile(optimizer='adam', loss='binary_crossentropy')
 
 autoencoder.fit(x_train, x_train, epochs=50, batch_size=256, shuffle=True)
-encoded_imgs = autoencoder.predict(x_test)
-decoded_imgs = encoded_imgs
+decoded_imgs = autoencoder.predict(x_test)
 
 n = 10 # how many digits we will display
 plt.figure(figsize=(20, 4))
