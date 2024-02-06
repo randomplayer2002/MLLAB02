@@ -21,16 +21,13 @@ autoencoder = Model(input_img, decoded)
 # this model maps an input to its encoded representation
 autoencoder.compile(optimizer='adam', loss='binary_crossentropy')
 
-autoencoder.fit(x_train, x_train,
-epochs=50,
-batch_size=256,
-shuffle=True,
-validation_data=(x_test, x_test))
+autoencoder.fit(x_train, x_train, epochs=50, batch_size=256, shuffle=True)
 encoded_imgs = autoencoder.predict(x_test)
 decoded_imgs = encoded_imgs
 
 n = 10 # how many digits we will display
 plt.figure(figsize=(20, 4))
+
 for i in range(n):
     ax = plt.subplot(2, n, i + 1)
     plt.imshow(x_test[i].reshape(28, 28))
