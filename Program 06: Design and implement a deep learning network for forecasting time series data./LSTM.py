@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
-from tensorflow.keras.optimizers import Adam
+# from tensorflow.keras.optimizers import Adam
 from sklearn.metrics import mean_squared_error
 # from math import sqrt
 
@@ -32,7 +32,7 @@ X_test, y_test = create_sequences(test_data, sequence_length)
 model = Sequential()
 model.add(LSTM(50, activation='relu'))
 model.add(Dense(1))
-model.compile(optimizer=Adam(learning_rate=0.001), loss='mean_squared_error')
+model.compile(optimizer='adam', loss='mean_squared_error')
 model.fit(X_train, y_train, epochs=100, batch_size=64)
 
 y_pred = model.predict(X_test)
