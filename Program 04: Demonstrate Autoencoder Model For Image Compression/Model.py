@@ -8,8 +8,8 @@ import matplotlib.pyplot as plt
 # normalize all values between 0 and 1 and we will flatten the 28x28 images into vectors of size 784.
 x_train = x_train.astype('float32') / 255.
 x_test = x_test.astype('float32') / 255.
-x_train = x_train.reshape((len(x_train), np.prod(x_train.shape[1:])))
-x_test = x_test.reshape((len(x_test), np.prod(x_test.shape[1:])))
+x_train = x_train.reshape(len(x_train), np.prod(x_train.shape[1:]))
+x_test = x_test.reshape(len(x_test), np.prod(x_test.shape[1:]))
 
 input_img = Input(shape=(784,))
 # "encoded" is the encoded representation of the input
