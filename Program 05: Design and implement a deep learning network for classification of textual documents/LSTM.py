@@ -1,10 +1,7 @@
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from keras.datasets import imdb
-from tensorflow.keras.layers import Dense
-from tensorflow.keras.layers import LSTM
-from tensorflow.keras.layers import Dropout
-from tensorflow.keras.layers import Embedding
+from tensorflow.keras.layers import Dense, LSTM, Dropout, Embedding
 from tensorflow.keras.preprocessing import sequence
 
 # tf.random.set_seed(7)
