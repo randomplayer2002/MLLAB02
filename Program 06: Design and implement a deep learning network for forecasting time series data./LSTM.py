@@ -6,14 +6,13 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 from tensorflow.keras.optimizers import Adam
 from sklearn.metrics import mean_squared_error
-from math import sqrt
+# from math import sqrt
 
 data = pd.read_csv('Electric_Production.csv')
 time_series = data['value'].values.reshape(-1, 1)
-
 scaler = MinMaxScaler()
 time_series_normalized = scaler.fit_transform(time_series)
-print(time_series_normalized)
+# print(time_series_normalized)
 
 train_size = int(len(time_series_normalized) * 0.8)
 train_data = time_series_normalized[:train_size]
@@ -34,16 +33,14 @@ model = Sequential()
 model.add(LSTM(50, activation='relu', input_shape=(sequence_length, 1)))
 model.add(Dense(1))
 model.compile(optimizer=Adam(learning_rate=0.001), loss='mean_squared_error')
-
 model.fit(X_train, y_train, epochs=100, batch_size=64)
 
 y_pred = model.predict(X_test)
-
 y_pred_original_scale = scaler.inverse_transform(y_pred.reshape(-1, 1))
 y_test_original_scale = scaler.inverse_transform(y_test.reshape(-1, 1))
 
-rmse = sqrt(mean_squared_error(y_test_original_scale, y_pred_original_scale))
-print(f"Root Mean Squared Error: {rmse}")
+# rmse = sqrt(mean_squared_error(y_test_original_scale, y_pred_original_scale))
+# print(f"Root Mean Squared Error: {rmse}")
 
 plt.figure(figsize=(12, 6))
 plt.plot(y_test_original_scale, label='Actual')
