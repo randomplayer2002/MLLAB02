@@ -5,17 +5,13 @@ from tensorflow.keras.layers import Dense, LSTM, Dropout, Embedding
 from tensorflow.keras.preprocessing import sequence
 
 # tf.random.set_seed(7)
-top_words = 6000
-(x_train, y_train), (x_test, y_test) = imdb.load_data(num_words = top_words)
-max_review_length = 5
-x_train = sequence.pad_sequences(x_train,maxlen = max_review_length)
-x_test = sequence.pad_sequences(x_test,maxlen = max_review_length)
-
+(x_train, y_train), (x_test, y_test) = imdb.load_data(num_words = 6000)
+x_train = sequence.pad_sequences(x_train,maxlen = 5)
+x_test = sequence.pad_sequences(x_test,maxlen = 5)
 print(x_train.shape)
-embedding_vector_length = 32
 
 model = Sequential()
-model.add(Embedding(top_words,embedding_vector_length,input_length=max_review_length))
+model.add(Embedding(top_words,embedding_vector_length,input_length=32))
 model.add(Dropout(0.2))
 model.add(LSTM(200))
 model.add(Dense(1,activation='sigmoid'))
