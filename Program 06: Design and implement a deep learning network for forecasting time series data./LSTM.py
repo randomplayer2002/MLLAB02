@@ -30,7 +30,7 @@ X_train, y_train = create_sequences(train_data, sequence_length)
 X_test, y_test = create_sequences(test_data, sequence_length)
 
 model = Sequential()
-model.add(LSTM(50, activation='relu', input_shape=(sequence_length, 1)))
+model.add(LSTM(50, activation='relu'))
 model.add(Dense(1))
 model.compile(optimizer=Adam(learning_rate=0.001), loss='mean_squared_error')
 model.fit(X_train, y_train, epochs=100, batch_size=64)
