@@ -1,6 +1,5 @@
 # Python program to generate word vectors using Word2Vec
 # importing all necessary modules
-
 import nltk
 nltk.download('punkt')
 from nltk.tokenize import sent_tokenize, word_tokenize
