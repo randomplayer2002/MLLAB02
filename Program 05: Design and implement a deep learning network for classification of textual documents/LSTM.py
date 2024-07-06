@@ -12,6 +12,7 @@ x_train = sequence.pad_sequences(x_train,maxlen = max_review_length)
 x_test = sequence.pad_sequences(x_test,maxlen = max_review_length)
 
 print(x_train.shape)
+
 embedding_vector_length = 32
 model = Sequential()
 model.add(Embedding(top_words,embedding_vector_length,input_length=max_review_length))
@@ -22,7 +23,6 @@ model.summary()
 model.add(Dense(1,activation='sigmoid'))
 model.compile(loss='binary_crossentropy',optimizer='adam',metrics=['accuracy'])
 model.fit(x_train,y_train,epochs=3,batch_size=64)
-
 scores = model.evaluate(x_test,y_test,verbose=0)
 
 print("Accuracy: %.2f%%" % (scores[1]*100))
